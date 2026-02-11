@@ -7,6 +7,7 @@ Problem Statement -
 You are given an array of integers.
 Your task is to find and return the smallest element present in the array.
 Solution - 
+
 int findSmallest(int[] arr){
 int min = arr[];
 for (int i=1; i<arr.length; i++){
@@ -25,6 +26,7 @@ Problem 2
 Problem Statement - 
 Find the sum of all elements in an array
 Solution - 
+
 int[] arr = {2,4,6,8};
 int sum = 0;
 for (int i=0; i<arr.length; i++){
@@ -40,6 +42,7 @@ Problem 3
 Problem Statement - 
 Find the maximum element in an array
 Solution - 
+
 int[] arr = {574,68,88,845,0,6,8,9,3,545,74};
 int max = arr[0];
 for (int i=0; i<arr.length; i++){
@@ -58,6 +61,7 @@ Problem 4
 Problem Statement -
 Given an integer array arr, determine whether the array is sorted in non-decreasing order
 Solution -
+
 public class checkSorted {
 
      public static boolean isSorted (int[] arr){
@@ -76,10 +80,59 @@ public class checkSorted {
 }
 
 
+* Final Time Complexity - O(n)
+* Final Space Complexity - O(1) (constant space)
 
 
 
+Problem 4
+Problem Statement -
+Given an integer array, find the second largest element
+Solution -
 
+public class SecondLargest {
+
+    public static int findSecondLargest(int[] arr) {
+        if (arr.length < 2) {
+            return -1;
+        }
+
+        int largest;
+        int secondLargest;
+
+        if (arr[0] > arr[1]) {
+            largest = arr[0];
+            secondLargest = arr[1];
+        } else if (arr[1] > arr[0]) {
+            largest = arr[1];
+            secondLargest = arr[0];
+        } else {
+            largest = arr[0];
+            secondLargest = -1;  // temporary variable
+        }
+
+        for (int i = 2; i < arr.length; i++) {
+
+            if (arr[i] > largest) {
+                secondLargest = largest;
+                largest = arr[i];
+            } 
+            else if (arr[i] > secondLargest && arr[i] != largest) {
+                secondLargest = arr[i];
+            }
+        }
+
+        return secondLargest;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {10, 5, 20, 8};
+        System.out.println(findSecondLargest(arr));
+    }
+}
+
+* Final Time Complexity - O(n)
+* Final Space Complexity - O(1) (constant space)
 
 
 
